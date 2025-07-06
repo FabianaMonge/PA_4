@@ -1,0 +1,261 @@
+/* Estilos base - Mobile First */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Mejoras de accesibilidad para focus */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: 2px solid #2179f3;
+    outline-offset: 2px;
+}
+
+/* Contraste mejorado para accesibilidad */
+.btn, .card-title {
+    font-weight: 600;
+}
+
+/* Estilos para el carrusel */
+.carousel {
+    height: 500px; 
+    overflow: hidden;
+}
+
+.carousel .carousel-item {
+    position: relative;
+}
+
+.carousel-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.6); 
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    padding: 0 20px;
+}
+
+.carousel-caption h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.carousel-caption p {
+    font-size: 1.8rem; 
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+/* Media queries para ajustar tamaños en diferentes dispositivos */
+@media only screen and (max-width: 992px) {
+    .carousel-caption h2 {
+        font-size: 2.8rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .carousel {
+        height: 400px;
+    }
+    
+    .carousel-caption h2 {
+        font-size: 2.2rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 1.2rem;
+    }
+}
+
+/* Efecto de hover para el texto */
+.carousel-item:hover .carousel-caption h2 {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Animación de entrada para el texto */
+.carousel-caption h2,
+.carousel-caption p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.carousel-item.active .carousel-caption h2,
+.carousel-item.active .carousel-caption p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Retraso para el párrafo */
+.carousel-item.active .carousel-caption p {
+    transition-delay: 0.3s;
+}
+
+/* Estilos para tarjetas */
+.card {
+    transition: box-shadow 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2);
+}
+
+.card .card-image img {
+    height: 180px;
+    object-fit: cover;
+}
+
+.card .card-content {
+    flex-grow: 1;
+}
+
+.skills-section {
+    margin: 1.5rem 0;
+}
+
+.skills-title {
+    color: #1e88e5;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #1e88e5;
+}
+
+/* Testimonios */
+.testimonio-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.testimonio-foto {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.rating {
+    margin-top: 10px;
+}
+
+/* Formularios */
+.input-field label {
+    color: #555;
+}
+
+.input-field input:focus + label,
+.input-field textarea:focus + label {
+    color: #2196F3 !important;
+}
+
+/* Mapa */
+.map-container {
+    margin-top: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Redes sociales */
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+}
+
+/* Media queries para tablets */
+@media only screen and (min-width: 600px) {
+    .carousel {
+        height: 500px;
+    }
+    
+    .card .card-image img {
+        height: 200px;
+    }
+}
+
+/* Media queries para desktop */
+@media only screen and (min-width: 992px) {
+    .carousel {
+        height: 600px;
+    }
+    
+    nav .brand-logo {
+        padding-left: -100px;
+    }
+    
+    .card .card-image img {
+        height: 220px;
+    }
+}
+
+/* Ajustes para modo de alto contraste */
+@media (prefers-contrast: more) {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .card {
+        border: 2px solid black;
+    }
+    
+    a, button {
+        text-decoration: underline;
+    }
+}
